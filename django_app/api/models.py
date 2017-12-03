@@ -13,6 +13,7 @@ class About(TimeStampedModel):
     name = models.CharField(max_length=140, blank=True)
     sub_name = models.CharField(max_length=140, blank=True)
     real_name = models.CharField(max_length=140, blank=True)
+    birthday = models.DateTimeField()
     detail = models.TextField(blank=True)
 
 
