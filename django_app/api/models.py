@@ -16,6 +16,9 @@ class About(TimeStampedModel):
     birthday = models.DateTimeField()
     detail = models.TextField(blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class SNS(TimeStampedModel):
     name = models.CharField(max_length=140)
@@ -23,14 +26,23 @@ class SNS(TimeStampedModel):
     url = models.URLField()
     # image = models.ImageField(upload_to='images/')
 
+    def __str__(self):
+        return self.name
+
 
 class Product(TimeStampedModel):
     name = models.CharField(max_length=140)
     url = models.URLField()
     detail = models.TextField(blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Inquiry(TimeStampedModel):
     name = models.CharField(max_length=140)
     email = models.EmailField()
     message = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
