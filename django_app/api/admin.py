@@ -2,26 +2,21 @@ from django.contrib import admin
 from api.models import About, SNS, Product, Inquiry
 
 
-@admin.register(Account)
+@admin.register(About)
 class About(admin.ModelAdmin):
-    list_display = ('id')
+    list_display = ('id',)
 
 
-@admin.register(Tweet)
+@admin.register(SNS)
 class SNS(admin.ModelAdmin):
-    list_display = ('name')
+    list_display = ('name',)
 
 
-@admin.register(Follow)
+@admin.register(Product)
 class Product(admin.ModelAdmin):
     list_display = ('name',)
 
 
-@admin.register(Favorite)
-class Favorite(admin.ModelAdmin):
-    list_display = ('tweet', 'user')
-
-
-@admin.register(Reply)
+@admin.register(Inquiry)
 class Inquiry(admin.ModelAdmin):
-    list_display = ('email')
+    list_display = ('email',)
