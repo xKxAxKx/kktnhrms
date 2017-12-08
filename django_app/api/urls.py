@@ -1,6 +1,7 @@
-from django.contrib import admin
 from django.urls import path
 
+from api.views import AboutGetView
+
 urlpatterns = [
-    path('', admin.site.urls),
+    path('about/', AboutGetView.as_view()),
 ]
