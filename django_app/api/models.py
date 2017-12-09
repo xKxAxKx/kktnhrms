@@ -21,9 +21,9 @@ class About(TimeStampedModel):
 
 
 class SNS(TimeStampedModel):
-    name = models.CharField(max_length=140)
-    account_name = models.CharField(max_length=140)
-    url = models.URLField()
+    name = models.CharField(max_length=140, unique=True, blank=True)
+    account_name = models.CharField(max_length=140, blank=True)
+    url = models.URLField(blank=True)
     # image = models.ImageField(upload_to='images/')
 
     def __str__(self):
