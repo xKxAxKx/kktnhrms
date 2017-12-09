@@ -31,7 +31,7 @@ class SNS(TimeStampedModel):
 
 
 class Product(TimeStampedModel):
-    name = models.CharField(max_length=140)
+    name = models.CharField(max_length=140, unique=True)
     url = models.URLField()
     detail = models.TextField(blank=True)
 

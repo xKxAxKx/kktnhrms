@@ -15,3 +15,10 @@ class SNSSerializer(serializers.ModelSerializer):
     class Meta:
         model = SNS
         fields = ('name', 'account_name', 'url')
+
+
+class ProductSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Product
+        fields = ('name', 'url', 'detail')
