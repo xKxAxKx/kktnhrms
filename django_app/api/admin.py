@@ -9,7 +9,8 @@ class About(admin.ModelAdmin):
 
 @admin.register(SNS)
 class SNS(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ('order', 'name', 'url',)
+    ordering = ('order',)
 
 
 @admin.register(Product)
