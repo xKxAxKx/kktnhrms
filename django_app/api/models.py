@@ -24,7 +24,7 @@ class SNS(TimeStampedModel):
     name = models.CharField(max_length=140, unique=True, blank=True)
     account_name = models.CharField(max_length=140, blank=True)
     url = models.URLField(blank=True)
-    # image = models.ImageField(upload_to='images/')
+    order = models.IntegerField()
 
     def __str__(self):
         return self.name
