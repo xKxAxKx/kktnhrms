@@ -2,15 +2,11 @@
   <div class="top">
     <h2>Link</h2>
     <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-      <br><br>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+      <li v-for="item in snsList">
+        <a :href="item.url" target="_blank">
+          {{ item.name }}
+        </a>
+      </li>
     </ul>
     <h2>Other</h2>
     <ul>
@@ -22,19 +18,27 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Top',
   data () {
     return {
-      snsList: [],
-      apiSns: '/sns'
+      snsList: []
+    }
+  },
+  methods: {
+    fetchLinks: function () {
+      axios.get('http://127.0.0.1:8000/api/sns/')
+           .then((res) => {
+             this.snsList = res.data
+           }), (error) => {
+             console.log(error)
+           }
     }
   },
   created: function () {
-    console.log(this.apiSns)
-  },
-  methods: {
-
+    this.fetchLinks()
   }
 }
 </script>
