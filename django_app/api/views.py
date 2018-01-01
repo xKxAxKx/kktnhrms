@@ -20,7 +20,7 @@ class AboutGetView(generics.ListAPIView):
 class SNSGetView(viewsets.ViewSet):
 
     def list(self, request):
-        query = SNS.objects.all()
+        query = SNS.objects.order_by('order').all()
         serializer = SNSSerializer(query, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
