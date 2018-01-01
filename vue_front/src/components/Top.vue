@@ -26,7 +26,15 @@ export default {
   name: 'Top',
   data () {
     return {
+      snsList: [],
+      apiSns: '/sns'
     }
+  },
+  created: function () {
+    console.log(this.apiSns)
+  },
+  methods: {
+
   }
 }
 </script>
