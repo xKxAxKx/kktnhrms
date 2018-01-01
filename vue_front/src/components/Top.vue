@@ -32,9 +32,9 @@ export default {
       axios.get('http://127.0.0.1:8000/api/sns/')
            .then((res) => {
              this.snsList = res.data
-           }), (error) => {
+           }).catch(error => {
              console.log(error)
-           }
+           })
     }
   },
   created: function () {
