@@ -2,11 +2,16 @@
   <div class="top">
     <h2>Link</h2>
     <ul>
-      <li v-for="item in snsList">
-        <a :href="item.url" target="_blank">
-          {{ item.name }}
-        </a>
-      </li>
+      <span v-for="(item, index) in snsList">
+        <li>
+          <a :href="item.url" target="_blank">
+            {{ item.name }}
+          </a>
+        </li>
+        <span v-if="(index+1) % 4 == 0">
+          <br><br>
+        </span>
+      </span>
     </ul>
     <h2>Other</h2>
     <ul>
