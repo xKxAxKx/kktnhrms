@@ -11,7 +11,7 @@ from api.serializers import AboutSerializer, SNSSerializer, ProductSerializer
 class AboutGetView(generics.ListAPIView):
 
     def get(self, request):
-        query = About.objects.all()
+        query = About.objects.all()[0]
         serializer = AboutSerializer(query)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
