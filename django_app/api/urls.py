@@ -1,6 +1,6 @@
 from django.urls import path
 
-from api.views import AboutGetView, SNSGetView, ProductGetView
+from api.views import AboutGetView, SNSGetView, ProductGetView, InquiryPostView
 
 urlpatterns = [
     path('about/', AboutGetView.as_view()),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('product/', ProductGetView.as_view({'get': 'list'})),
     path('product/<int:product_id>/',
          ProductGetView.as_view({'get': 'retrieve'})),
+    path('inquiry/', InquiryPostView.as_view())
 ]

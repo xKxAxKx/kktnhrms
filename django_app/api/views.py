@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.db import transaction
 
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -45,3 +46,10 @@ class ProductGetView(viewsets.ViewSet):
         serializer = ProductSerializer(query)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class InquiryPostView(generics.CreateAPIView):
+
+    @transaction.atomic
+    def create(self, request):
+        pass
