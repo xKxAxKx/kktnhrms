@@ -2,7 +2,7 @@
   <div class="profile">
     <h2>Profile</h2>
     <div class="detail">
-      <span v-html="profile.detail"></span>
+      <span v-html="profile"></span>
     </div>
   </div>
 </template>
@@ -18,11 +18,10 @@ export default {
     }
   },
   methods: {
-    fetchProfile: function() {
+    fetchProfile: function () {
       axios.get('http://127.0.0.1:8000/api/about/')
            .then((res) => {
-             console.log(res.data)
-             this.profile = res.data
+             this.profile = res.data.detail
            }).catch(error => {
              console.log(error)
            })
@@ -36,6 +35,7 @@ export default {
 
 <style scoped>
 .detail {
+  max-width: 550px;
   display: inline-block;
   text-align: left;
 }
