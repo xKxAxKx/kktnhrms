@@ -35,7 +35,7 @@ class SNSGetView(viewsets.ViewSet):
 class ProductGetView(viewsets.ViewSet):
 
     def list(self, request):
-        query = Product.objects.all()
+        query = Product.objects.order_by('-order').all()
         serializer = ProductSerializer(query, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)

@@ -34,6 +34,7 @@ class Product(TimeStampedModel):
     name = models.CharField(max_length=140, unique=True)
     url = models.URLField()
     detail = models.TextField(blank=True)
+    order = models.IntegerField()
 
     def __str__(self):
         return self.name
