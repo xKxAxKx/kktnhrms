@@ -6,7 +6,8 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 
 from api.models import About, SNS, Product, Inquiry
-from api.serializers import AboutSerializer, SNSSerializer, ProductSerializer
+from api.serializers import (AboutSerializer, SNSSerializer, ProductSerializer,
+                             InquirySerializer)
 
 
 class AboutGetView(generics.ListAPIView):
@@ -49,7 +50,5 @@ class ProductGetView(viewsets.ViewSet):
 
 
 class InquiryPostView(generics.CreateAPIView):
-
-    @transaction.atomic
-    def create(self, request):
-        pass
+    queryset = Inquiry.objects.all()
+    serializer_class = InquirySerializer

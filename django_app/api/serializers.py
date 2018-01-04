@@ -22,3 +22,13 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('name', 'url', 'detail')
+
+
+class InquirySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Inquiry
+        fields = '__all__'
+
+    def create(self, validate_data):
+        return Inquiry.objects.create(**validated_data)
