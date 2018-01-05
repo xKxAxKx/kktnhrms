@@ -30,5 +30,5 @@ class InquirySerializer(serializers.ModelSerializer):
         model = Inquiry
         fields = '__all__'
 
-    def create(self, validate_data):
+    def create(self, validated_data):
         return Inquiry.objects.create(**validated_data)
