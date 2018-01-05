@@ -69,22 +69,92 @@ class TestApi(APITestCase):
 
         self.assertEqual(response.data['name'], 'Yamada')
 
-    def test_get_sns(self):
+    def test_list_sns(self):
         url = reverse('sns_list')
         response = self.client.get(url)
 
         self.assertEqual(len(response.data), 3)
         self.assertEqual(response.data[0]['name'], 'SNS1')
         self.assertEqual(response.data[1]['name'], 'SNS3')
-    #
-    # def test_get_product(self):
-    #     pass
-    #
-    # def test_post_inquiry_error_1(self):
-    #     pass
-    #
-    # def test_post_inquiry_error_1(self):
-    #     pass
-    #
-    # def test_post_inquiry_success(self):
-    #     pass
+
+    def test_retrieve_sns(self):
+        url = reverse('sns_get')
+        response = self.client.get(url)
+        import pdb; pdb.set_trace()
+
+        self.assertEqual(response.data['name'], 'SNS1')
+        self.assertEqual(response.data['url'], 'https://sns1.com')
+
+    def test_list_product(self):
+        url = reverse('product_list')
+        response = self.client.get(url)
+
+        self.assertEqual(len(response.data), 3)
+        self.assertEqual(response.data[0]['name'], 'product2')
+        self.assertEqual(response.data[1]['name'], 'product3')
+
+    def test_retrieve_product(self):
+        url = reverse('product_get')
+        response = self.client.get(url)
+        import pdb; pdb.set_trace()
+
+        self.assertEqual(response.data['name'], 'product1')
+        self.assertEqual(response.data['url'], 'https://product1.com')
+
+    def test_post_inquiry_success_1(self):
+        post_data = {'name': 'name1',
+                     'email': 'example@example.com',
+                     'message': 'hello!'}
+        url = reverse('inquiry')
+        response = self.client.post(url, post_data)
+        data = json.loads(response.content)
+
+        self.assertEqual(response.status_code, 201)
+
+    def test_post_inquiry_success_2(self):
+        post_data = {'name': 'test',
+                     'email': 'example@example.com',
+                     'message': ''}
+        url = reverse('inquiry')
+        response = self.client.post(url, post_data)
+        data = json.loads(response.content)
+
+        self.assertEqual(response.status_code, 201)
+
+    def test_post_inquiry_success_3(self):
+        post_data = {'name': 'test',
+                     'email': 'example@example.com'}
+        url = reverse('inquiry')
+        response = self.client.post(url, post_data)
+        data = json.loads(response.content)
+
+        self.assertEqual(response.status_code, 201)
+
+    def test_post_inquiry_error_1(self):
+        post_data = {'name': 'name1',
+                     'email': 'example.com',
+                     'message': 'hello!'}
+        url = reverse('inquiry')
+        response = self.client.post(url, post_data)
+        data = json.loads(response.content)
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_post_inquiry_error_2(self):
+        post_data = {'name': '',
+                     'email': 'example@example.com',
+                     'message': 'hello!'}
+        url = reverse('inquiry')
+        response = self.client.post(url, post_data)
+        data = json.loads(response.content)
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_post_inquiry_error_3(self):
+        post_data = {'name': 'test',
+                     'message': 'hello'}
+        url = reverse('inquiry')
+        response = self.client.post(url, post_data)
+        data = json.loads(response.content)
+
+        self.assertEqual(response.status_code, 400)
