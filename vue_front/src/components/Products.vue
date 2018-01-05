@@ -37,8 +37,8 @@ export default {
 </script>
 
 <style scoped>
-.items {
-  /* max-width: 550px; */
+/* .items {
+  max-width: 550px;
   margin-bottom: 30px;
-}
+} */
 </style>

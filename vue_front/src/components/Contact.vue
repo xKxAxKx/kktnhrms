@@ -2,7 +2,7 @@
   <div class="contact">
     <h2>Contact</h2>
     <form>
-      <div class="form-group inquiry">
+      <div class="form-group inquiry" style="max-width: 550px;">
         <input type="text" class="form-control" placeholder="Your Name">
         <br>
         <input type="email" class="form-control" placeholder="Your Email">
@@ -24,9 +24,9 @@ export default {
 </script>
 
 <style scoped>
-.inquiry {
+/* .inquiry {
   max-width: 550px;
   display: inline-block;
   text-align: center;
-}
+} */
 </style>

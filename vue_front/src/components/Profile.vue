@@ -34,9 +34,9 @@ export default {
 </script>
 
 <style scoped>
-.detail {
+/* .detail {
   max-width: 550px;
   display: inline-block;
   text-align: left;
-}
+} */
 </style>
