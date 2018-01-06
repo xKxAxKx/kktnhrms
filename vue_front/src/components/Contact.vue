@@ -24,9 +24,5 @@ export default {
 </script>
 
 <style scoped>
-/* .inquiry {
-  max-width: 550px;
-  display: inline-block;
-  text-align: center;
-} */
+
 </style>

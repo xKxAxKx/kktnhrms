@@ -6,6 +6,7 @@
         {{ item.name }}
       </a>
       <div v-html="item.detail"></div>
+      <br>
     </div>
   </div>
 </template>
@@ -35,10 +36,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-/* .items {
-  max-width: 550px;
-  margin-bottom: 30px;
-} */
-</style>
