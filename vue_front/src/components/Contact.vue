@@ -10,18 +10,22 @@
       <div class="form-group">
         <label>Email</label>
         <p v-if="confirm">{{ email }}</p>
-        <input v-else v-model="email" type="email" class="form-control" placeholder="example@example.com" >
+        <input v-else v-model="email" type="email" class="form-control" placeholder="example@example.com">
       </div>
       <div class="form-group">
         <label>Message</label>
         <div v-if="confirm">
           {{ message }}
         </div>
-        <textarea v-else v-model="message" class="form-control" rows="3"></textarea>
+        <textarea v-else v-model="message" class="form-control" rows="3" placeholder="Message"></textarea>
       </div>
-      <button v-on:click="sendMessage" v-if="confirm" class="btn btn-success">Send Message</button>
+      <button v-on:click="sendMessage" v-if="confirm" class="btn btn-success">
+        Send Message
+      </button>
       <button v-on:click="canselConfirm" v-if="confirm" class="btn btn-danger">Cansel</button>
-      <button v-on:click="confirmMessage" v-else class="btn btn-success">Confirm</button>
+      <button v-on:click="confirmMessage" v-else class="btn btn-success" :disabled="name.length <= 0 || email.lenght <= 0">
+        Confirm
+      </button>
     </form>
     <p v-if='thanksMessage'>{{ thanksMessage }}</p>
   </div>
