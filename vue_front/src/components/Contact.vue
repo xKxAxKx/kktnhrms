@@ -40,7 +40,12 @@ export default {
       email: '',
       message: '',
       confirm: false,
-      thanksMessage: ''
+      thanksMessage: '',
+      validation: {
+        'name': true,
+        'email': true,
+        'message': true
+      }
     }
   },
   methods: {
