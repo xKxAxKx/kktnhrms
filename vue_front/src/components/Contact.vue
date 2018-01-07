@@ -22,8 +22,8 @@
       <button v-on:click="sendMessage" v-if="confirm" class="btn btn-success">
         Send Message
       </button>
-      <button v-on:click="canselConfirm" v-if="confirm" class="btn btn-danger">Cansel</button>
-      <button v-on:click="confirmMessage" v-else class="btn btn-success" :disabled="name.length <= 0 || email.lenght <= 0">
+      <button v-if="confirm" v-on:click="canselConfirm" class="btn btn-danger">Cansel</button>
+      <button v-else v-on:click="confirmMessage" class="btn btn-success" :disabled="canNotConfirm">
         Confirm
       </button>
     </form>
@@ -57,6 +57,15 @@ export default {
       this.email = ''
       this.message = ''
       this.thanksMessage = 'Thanks for the message!'
+    }
+  },
+  computed: {
+    canNotConfirm: function () {
+      if (this.name.length === 0 || this.email.length === 0) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
