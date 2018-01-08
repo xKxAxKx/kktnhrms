@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Contact',
   data () {
@@ -66,6 +68,7 @@ export default {
   },
   methods: {
     confirmMessage: function () {
+      this.thanksMessage = ''
       if (this.checkEmail(this.email)) {
         this.confirm = true
       } else {
@@ -76,11 +79,25 @@ export default {
       this.confirm = false
     },
     sendMessage: function () {
-      this.confirm = false
-      this.name = ''
-      this.email = ''
-      this.message = ''
-      this.thanksMessage = 'Thanks for the message!'
+      axios.post(
+        'http://127.0.0.1:8000/api/inquiry/',
+        {
+          name: this.name,
+          email: this.email,
+          message: this.message
+        }
+      )
+      .then((res) => {
+        this.confirm = false
+        this.name = ''
+        this.email = ''
+        this.message = ''
+        this.thanksMessage = 'Thanks for the message!'
+      }).catch(error => {
+        this.confirm = false
+        this.thanksMessage = 'Sending message failed...'
+        console.log(error)
+      })
     },
     checkEmail: function (email) {
       if (email.match(/.+@.+\..+/) === null) {
