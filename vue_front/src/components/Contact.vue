@@ -39,14 +39,14 @@
           rows="3"
           placeholder="Message"></textarea>
       </div>
-      <button v-on:click="sendMessage" v-if="confirm" class="btn btn-success">
-        Send Message
-      </button>
-      <button v-if="confirm" v-on:click="canselConfirm" class="btn btn-danger">Cansel</button>
-      <button v-else v-on:click="confirmMessage" class="btn btn-success" :disabled="canNotConfirm">
-        Confirm
-      </button>
     </form>
+    <button v-on:click="sendMessage" v-if="confirm" class="btn btn-success">
+      Send Message
+    </button>
+    <button v-if="confirm" v-on:click="canselConfirm" class="btn btn-danger">Cansel</button>
+    <button v-else v-on:click="confirmMessage" class="btn btn-success" :disabled="canNotConfirm">
+      Confirm
+    </button>
     <p v-if='thanksMessage'>{{ thanksMessage }}</p>
   </div>
 </template>
