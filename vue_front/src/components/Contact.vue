@@ -80,7 +80,7 @@ export default {
     },
     sendMessage: function () {
       axios.post(
-        'http://127.0.0.1:8000/api/inquiry/',
+        process.env.API_ENDPOINT + '/api/inquiry/',
         {
           name: this.name,
           email: this.email,

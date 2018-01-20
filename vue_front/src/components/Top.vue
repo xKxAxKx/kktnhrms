@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     fetchLinks: function () {
-      axios.get('http://127.0.0.1:8000/api/sns/')
+      axios.get(process.env.API_ENDPOINT + '/api/sns/')
            .then((res) => {
              this.snsList = res.data
            }).catch(error => {
@@ -44,6 +44,8 @@ export default {
   },
   created: function () {
     this.fetchLinks()
+
+    console.log(process.env.API_ENDPOINT + '/api/product/')
   }
 }
 </script>

@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     fetchProfile: function () {
-      axios.get('http://127.0.0.1:8000/api/about/')
+      axios.get(process.env.API_ENDPOINT + '/api/about/')
            .then((res) => {
              this.profile = res.data.detail
            }).catch(error => {

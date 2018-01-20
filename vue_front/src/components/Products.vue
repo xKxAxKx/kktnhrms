@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     fetchProducts: function () {
-      axios.get('http://127.0.0.1:8000/api/product/')
+      axios.get(process.env.API_ENDPOINT + '/api/product/')
            .then((res) => {
              this.products = res.data
            }).catch(error => {
