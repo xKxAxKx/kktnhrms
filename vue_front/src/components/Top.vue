@@ -44,8 +44,6 @@ export default {
   },
   created: function () {
     this.fetchLinks()
-
-    console.log(process.env.API_ENDPOINT + '/api/product/')
   }
 }
 </script>
