@@ -22,7 +22,6 @@ class About(TimeStampedModel):
 
 class SNS(TimeStampedModel):
     name = models.CharField(max_length=140, unique=True, blank=True)
-    account_name = models.CharField(max_length=140, blank=True)
     url = models.URLField(blank=True)
     order = models.IntegerField()
 
