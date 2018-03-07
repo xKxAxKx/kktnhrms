@@ -10,3 +10,21 @@
 - サーバサイドはDjango
 - フロントエンドはAngularでいいかなー、と思っているけど、勉強がてらVue.jsかReact使ってみようかなー、とも思ってる
   -> Vue.jsにした
+
+
+## ローカルでの起動
+- vue
+```
+$ npm run dev
+```
+
+- django
+```
+$ python manage.py runserver --settings=django_app.settings.local
+```
+
+## Build
+```
+$ npm run build
+```
+/dist以下はgitignoreしているので、サーバ上でgit pullした後にも実行する
